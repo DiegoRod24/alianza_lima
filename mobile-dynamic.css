@@ -60,3 +60,21 @@
 .hero-3d{transition:transform .28s ease-out;transform-style:preserve-3d}
 
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.showcase-track,.history-line,.product-grid,.gallery,.mystique-grid{scroll-behavior:auto!important}}
+
+/* ===== Marca ParaTodaLaVida ===== */
+.brand{width:270px;height:58px;display:block;background:url('assets/brand/paratodalavida-logo.svg') left center/contain no-repeat;overflow:hidden}
+.brand .crest,.brand>span{display:none!important}
+.card3d-content{align-items:center;text-align:center}
+.card3d-content small,.card3d-content strong,.card3d-content span{display:none!important}
+.card3d-content:before{content:"";display:block;width:92%;height:58%;background:url('assets/brand/paratodalavida-logo.svg') center/contain no-repeat;filter:drop-shadow(0 8px 18px rgba(0,0,0,.22))}
+.card3d-content:after{content:"DEL BARRIO PARA LA TRIBUNA";display:block;margin-top:16px;padding:9px 13px;border:1px solid rgba(7,21,47,.25);background:rgba(255,255,255,.8);color:#07152f;font-size:10px;font-weight:900;letter-spacing:2px;border-radius:999px}
+footer>div:first-child b{font-size:0}
+footer>div:first-child b:before{content:"PARATODALAVIDA";font-size:12px;letter-spacing:1.4px}
+
+/* Splash de carga con la nueva marca */
+body:before{content:"";position:fixed;inset:0;z-index:9998;pointer-events:none;background-image:url('assets/brand/paratodalavida-logo.svg'),radial-gradient(circle at 50% 42%,rgba(47,104,255,.18),transparent 34%),linear-gradient(180deg,#030914,#081f3b);background-repeat:no-repeat,no-repeat,no-repeat;background-position:center 45%,center,center;background-size:min(72vw,520px) auto,100% 100%,100% 100%;animation:ptlvSplash 2.15s ease forwards}
+body:after{content:"";position:fixed;z-index:9999;pointer-events:none;left:50%;top:67%;width:min(48vw,230px);height:4px;border-radius:99px;background:linear-gradient(90deg,#2f68ff 0 62%,rgba(255,255,255,.18) 62% 100%);box-shadow:0 0 24px rgba(47,104,255,.55);transform:translateX(-50%);animation:ptlvBar 2.15s ease forwards}
+@keyframes ptlvSplash{0%,66%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+@keyframes ptlvBar{0%{opacity:0;transform:translateX(-50%) scaleX(.08);transform-origin:left}18%,68%{opacity:1;transform:translateX(-50%) scaleX(1);transform-origin:left}100%{opacity:0;visibility:hidden}}
+
+@media(max-width:700px){.brand{width:205px;height:48px}.card3d-content:before{width:96%;height:62%}.card3d-content:after{font-size:8px;letter-spacing:1.4px;padding:8px 10px}body:before{background-size:min(86vw,420px) auto,100% 100%,100% 100%;background-position:center 44%,center,center}body:after{top:63%;width:46vw}}
