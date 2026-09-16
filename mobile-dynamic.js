@@ -2,6 +2,15 @@
   const qs=(s,r=document)=>r.querySelector(s), qsa=(s,r=document)=>[...r.querySelectorAll(s)];
   const isMobile=()=>window.matchMedia('(max-width:700px)').matches;
 
+  /* Marca principal */
+  document.title='ParaTodaLaVida | Hinchas por siempre';
+  const metaDesc=qs('meta[name="description"]');
+  if(metaDesc)metaDesc.content='ParaTodaLaVida: polos, telas, banderolas y pedidos personalizados con identidad de barrio y tribuna.';
+  let favicon=qs('link[rel="icon"]');
+  if(!favicon){favicon=document.createElement('link');favicon.rel='icon';document.head.appendChild(favicon)}
+  favicon.href='assets/brand/paratodalavida-mark.svg';
+  qs('.brand')?.setAttribute('aria-label','ParaTodaLaVida - Hinchas por siempre');
+
   /* Showcase visual usando trabajos reales existentes */
   const ticker=qs('.ticker');
   if(ticker&&!qs('.mobile-showcase')){
@@ -9,11 +18,11 @@
     section.className='mobile-showcase';
     section.innerHTML=`
       <div class="showcase-heading reveal visible">
-        <div><p>RINCÓN DEL HINCHA GRONE</p><h2>HECHO PARA VERSE<br>EN LA CALLE.</h2></div>
+        <div><p>PARATODALAVIDA · HINCHAS POR SIEMPRE</p><h2>HECHO PARA VERSE<br>EN LA CALLE.</h2></div>
         <div class="showcase-controls"><button type="button" data-showcase-prev aria-label="Anterior">←</button><button type="button" data-showcase-next aria-label="Siguiente">→</button></div>
       </div>
       <div class="showcase-track" id="showcaseTrack">
-        ${[4,1,8,12,18].map((n,i)=>`<button type="button" class="showcase-card${i===0?' is-active':''}" data-src="assets/galeria/trabajo-${String(n).padStart(2,'0')}.webp"><img loading="lazy" src="assets/galeria/trabajo-${String(n).padStart(2,'0')}.webp" alt="Trabajo destacado ${i+1}"><span class="showcase-meta"><small>${i===0?'DESDE LA TRIBUNA':i===1?'HECHO POR NOSOTROS':i===2?'BARRIO Y PASIÓN':i===3?'TRABAJO REAL':'IDENTIDAD GRONE'}</small><strong>${i===0?'RINCÓN GRONE':i===1?'TU IDEA HECHA REAL':i===2?'PARA TU GENTE':i===3?'HECHO A PEDIDO':'LLEVA TU HISTORIA'}</strong></span></button>`).join('')}
+        ${[4,1,8,12,18].map((n,i)=>`<button type="button" class="showcase-card${i===0?' is-active':''}" data-src="assets/galeria/trabajo-${String(n).padStart(2,'0')}.webp"><img loading="lazy" src="assets/galeria/trabajo-${String(n).padStart(2,'0')}.webp" alt="Trabajo destacado ${i+1}"><span class="showcase-meta"><small>${i===0?'DESDE LA TRIBUNA':i===1?'HECHO POR NOSOTROS':i===2?'BARRIO Y PASIÓN':i===3?'TRABAJO REAL':'IDENTIDAD GRONE'}</small><strong>${i===0?'PARA TODA LA VIDA':i===1?'TU IDEA HECHA REAL':i===2?'PARA TU GENTE':i===3?'HECHO A PEDIDO':'LLEVA TU HISTORIA'}</strong></span></button>`).join('')}
       </div>
       <div class="showcase-dots" id="showcaseDots"></div>`;
     ticker.insertAdjacentElement('afterend',section);
