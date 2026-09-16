@@ -1,142 +1,15 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#07152f" />
-  <meta name="description" content="Rincón del Hincha Grone: polos, telas, banderolas y pedidos personalizados para la tribuna blanquiazul." />
-  <title>Rincón del Hincha Grone</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="stadium-lights" aria-hidden="true"></div>
-  <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Inicio">
-      <span class="brand-mark">RH</span>
-      <span><b>RINCÓN DEL HINCHA</b><small>GRONE · LA VICTORIA</small></span>
-    </a>
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
-    <nav id="mainNav">
-      <a href="#historia">Identidad</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#personaliza">Personaliza</a>
-      <a href="#tribuna">Tribuna</a>
-      <button class="cart-btn" id="cartBtn">Pedido <span id="cartCount">0</span></button>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-noise"></div>
-      <div class="hero-copy reveal">
-        <p class="eyebrow">DEL BARRIO · DE LA VICTORIA · PARA SU GENTE</p>
-        <h1>NO ES SOLO FÚTBOL.<br><span>ES SENTIMIENTO.</span></h1>
-        <p class="lead">Una tienda nacida desde la tribuna: polos, telas, banderolas y trabajos personalizados para llevar el azul y blanco con identidad.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#catalogo">Ver productos</a>
-          <a class="btn ghost" href="#personaliza">Quiero algo a medida</a>
-        </div>
-        <div class="hero-badges">
-          <span>⚡ Reserva rápida</span><span>🧵 Personalización</span><span>📦 Pedidos por encargo</span>
-        </div>
-      </div>
-
-      <div class="hero-stage reveal" aria-label="Escena de tribuna animada">
-        <div class="flag flag-a"><i></i></div>
-        <div class="flag flag-b"><i></i></div>
-        <div class="terrace-card">
-          <span class="micro">DESDE LA TRIBUNA</span>
-          <strong>RINCÓN<br>DEL HINCHA<br><em>GRONE</em></strong>
-          <small>Hecho para cantar, alentar y recordar de dónde venimos.</small>
-        </div>
-        <div class="crowd crowd-1"></div>
-        <div class="crowd crowd-2"></div>
-        <div class="flare flare-1"></div>
-        <div class="flare flare-2"></div>
-      </div>
-
-      <button class="sound-pill" id="soundBtn" type="button">🔇 Ambiente de tribuna</button>
-      <audio id="ambientAudio" preload="none" loop>
-        <source src="assets/audio/tribuna-demo.mp3" type="audio/mpeg">
-      </audio>
-    </section>
-
-    <section class="ticker" aria-label="frases de identidad">
-      <div>1901 · EQUIPO DEL PUEBLO · LA VICTORIA · ÍNTIMOS · CORAZÓN BLANQUIAZUL · 1901 · EQUIPO DEL PUEBLO · LA VICTORIA · ÍNTIMOS · CORAZÓN BLANQUIAZUL ·</div>
-    </section>
-
-    <section class="identity section" id="historia">
-      <div class="section-heading reveal">
-        <p class="eyebrow">IDENTIDAD</p>
-        <h2>UNA HISTORIA QUE SE LLEVA PUESTA</h2>
-        <p>Alianza nació en 1901 y su identidad se fue uniendo a los barrios populares de Lima y a La Victoria. Esa raíz obrera, barrial y comunitaria explica por qué el apelativo “Equipo del Pueblo” forma parte de su memoria colectiva.</p>
-      </div>
-      <div class="identity-grid">
-        <article class="story-card reveal"><span>01</span><h3>Origen popular</h3><p>Fundado por jóvenes en Lima y convertido con el tiempo en un símbolo de identificación popular.</p></article>
-        <article class="story-card reveal"><span>02</span><h3>La Victoria</h3><p>El barrio, Matute y la vida cotidiana hicieron del club una identidad que rebasa los noventa minutos.</p></article>
-        <article class="story-card reveal"><span>03</span><h3>Los íntimos</h3><p>Una idea de cercanía y fraternidad: estar juntos en la buena, en la mala y en la tribuna.</p></article>
-        <article class="story-card reveal"><span>04</span><h3>Memoria</h3><p>Campeonatos, cantera, referentes, tragedias y resistencia forman una historia que cada generación vuelve a contar.</p></article>
-      </div>
-      <p class="source-note">Texto editorial basado en fuentes históricas públicas. Este sitio es independiente y no oficial.</p>
-    </section>
-
-    <section class="catalog section" id="catalogo">
-      <div class="section-heading split reveal">
-        <div><p class="eyebrow">CATÁLOGO</p><h2>PARA LA TRIBUNA Y PARA EL BARRIO</h2></div>
-        <div class="filters" id="filters"><button class="active" data-filter="all">Todo</button><button data-filter="polo">Polos</button><button data-filter="banderola">Banderolas</button><button data-filter="tela">Telas</button><button data-filter="custom">Personalizados</button></div>
-      </div>
-      <div class="product-grid" id="productGrid"></div>
-    </section>
-
-    <section class="custom section" id="personaliza">
-      <div class="custom-visual reveal">
-        <div class="cloth"><span>TU IDEA<br><b>EN LA TRIBUNA</b></span></div>
-        <div class="measure m1">↔ ancho</div><div class="measure m2">↕ alto</div>
-      </div>
-      <div class="custom-copy reveal">
-        <p class="eyebrow">HECHO A TU MEDIDA</p>
-        <h2>CUÉNTANOS QUÉ QUIERES HACER</h2>
-        <p>Una banderola para tu grupo, una tela de viaje, polos para tu gente o un diseño especial. Déjalo armado y envíalo por WhatsApp.</p>
-        <form id="customForm">
-          <div class="field-row"><label>Nombre<input id="name" required placeholder="Tu nombre"></label><label>Producto<select id="type"><option>Polo</option><option>Banderola</option><option>Tela</option><option>Pack de grupo</option><option>Otro</option></select></label></div>
-          <div class="field-row"><label>Cantidad<input id="qty" type="number" min="1" value="1"></label><label>Medidas / talla<input id="size" placeholder="Ej. 2 x 1 m / talla L"></label></div>
-          <label>Idea<textarea id="idea" required rows="4" placeholder="Colores, frase, nombres, fecha, detalles..."></textarea></label>
-          <button class="btn primary full" type="submit">Armar solicitud por WhatsApp</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="tribune section" id="tribuna">
-      <div class="section-heading reveal"><p class="eyebrow">LA TRIBUNA</p><h2>QUE LA WEB SE SIENTA COMO EN CASA</h2><p>La experiencia está pensada para móviles, tablet y escritorio: luces, banderas, movimiento, vibración visual y un reproductor opcional para el ambiente.</p></div>
-      <div class="chant-panel reveal">
-        <button id="chantPrev" aria-label="Anterior">←</button>
-        <div><small>REPERTORIO / AMBIENTE</small><strong id="chantTitle">Tribuna blanquiazul</strong><p id="chantText">Aquí podremos conectar canciones o audios propios/licenciados sin reproducirlos automáticamente.</p></div>
-        <button id="chantNext" aria-label="Siguiente">→</button>
-      </div>
-    </section>
-
-    <section class="cta section reveal">
-      <p class="eyebrow">¿TIENES UNA IDEA?</p>
-      <h2>NO LA DEJES EN LA CABEZA.<br>LLÉVALA A LA TRIBUNA.</h2>
-      <a class="btn primary" href="#personaliza">Hacer mi pedido</a>
-    </section>
-  </main>
-
-  <aside class="drawer" id="drawer" aria-hidden="true">
-    <div class="drawer-head"><div><small>TU RESERVA</small><h3>Pedido</h3></div><button id="closeCart">✕</button></div>
-    <div id="cartItems" class="cart-items"></div>
-    <div class="drawer-foot"><div class="total"><span>Total referencial</span><strong id="cartTotal">S/ 0</strong></div><button class="btn primary full" id="sendOrder">Enviar pedido por WhatsApp</button><small>Los precios son referenciales y se confirman al coordinar.</small></div>
-  </aside>
-  <div class="overlay" id="overlay"></div>
-
-  <footer>
-    <div><b>RINCÓN DEL HINCHA GRONE</b><span>Proyecto independiente · Lima, Perú</span></div>
-    <div><span>Hecho desde la tribuna para la tribuna.</span><span>© <span id="year"></span></span></div>
-  </footer>
-
-  <script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#06152f"><meta name="description" content="Rincón del Hincha Grone: polos, telas, banderolas y pedidos personalizados."><title>Rincón del Hincha Grone</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head><body>
+<div class="grain"></div><header class="topbar"><a class="brand" href="#inicio"><span class="crest">RH</span><span><b>RINCÓN DEL HINCHA</b><small>GRONE · LA VICTORIA</small></span></a><button id="menuBtn" class="menu">☰</button><nav id="nav"><a href="#productos">Productos</a><a href="#trabajos">Trabajos</a><a href="#personaliza">Personaliza</a><a href="#tribuna">Tribuna</a><button id="cartBtn" class="cart">Pedido <span id="cartCount">0</span></button></nav></header>
+<main>
+<section class="hero" id="inicio"><video class="hero-video" autoplay muted loop playsinline poster="assets/galeria/trabajo-04.webp"><source src="assets/video/tribuna-01.mp4" type="video/mp4"></video><div class="hero-overlay"></div><div class="hero-copy reveal"><p class="eyebrow">DEL PUEBLO · DE LA VICTORIA · PARA SU GENTE</p><h1>NO ES SOLO FÚTBOL.<br><span>ES SENTIMIENTO.</span></h1><p class="lead">Polos, telas, banderolas y trabajos personalizados hechos con identidad de barrio y tribuna.</p><div class="actions"><a class="btn primary" href="#productos">Ver catálogo</a><a class="btn ghost" href="#personaliza">Quiero algo a medida</a></div><div class="chips"><span>⚡ Reserva rápida</span><span>🧵 Personalización</span><span>📦 Pedidos por encargo</span></div></div><div class="hero-card reveal"><img src="assets/galeria/trabajo-04.webp" alt="Trabajo real Rincón del Hincha Grone"><div><small>TRABAJO REAL</small><b>HECHO POR LA GENTE</b><span>Diseños que salen del barrio y terminan en la tribuna.</span></div></div><button id="videoSound" class="sound">🔇 Video ambiente</button></section>
+<div class="ticker"><div>1901 · LA VICTORIA · EQUIPO DEL PUEBLO · ÍNTIMOS · BARRIO · TRIBUNA · 1901 · LA VICTORIA · EQUIPO DEL PUEBLO · ÍNTIMOS ·</div></div>
+<section class="manifesto section"><div class="section-head reveal"><p class="eyebrow">IDENTIDAD</p><h2>HECHO DESDE LA TRIBUNA</h2><p>Una tienda independiente inspirada en la cultura popular, la vida de barrio y el sentimiento blanquiazul. La idea es que comprar aquí se sienta menos como entrar a un ecommerce y más como entrar a una previa.</p></div><div class="pillars"><article class="reveal"><span>01</span><h3>Barrio</h3><p>Diseños con personalidad, no plantillas genéricas.</p></article><article class="reveal"><span>02</span><h3>Tribuna</h3><p>Polos, telas y banderolas pensados para verse de verdad.</p></article><article class="reveal"><span>03</span><h3>Gente</h3><p>Pedidos especiales para grupos, viajes y fechas importantes.</p></article></div></section>
+<section class="section products" id="productos"><div class="section-head split reveal"><div><p class="eyebrow">CATÁLOGO</p><h2>PARA EL BARRIO Y LA CANCHA</h2></div><div id="filters" class="filters"><button class="active" data-filter="all">Todo</button><button data-filter="polo">Polos</button><button data-filter="banderola">Banderolas</button><button data-filter="tela">Telas</button><button data-filter="custom">Personalizados</button></div></div><div id="productGrid" class="product-grid"></div></section>
+<section class="section gallery-section" id="trabajos"><div class="section-head reveal"><p class="eyebrow">TRABAJOS REALES</p><h2>NO TE LO CONTAMOS.<br>TE LO MOSTRAMOS.</h2><p>Las imágenes reales del proyecto están conectadas a esta galería y se cargan de forma optimizada.</p></div><div id="gallery" class="gallery"></div><button id="moreGallery" class="btn ghost centered">Ver más trabajos</button></section>
+<section class="section custom" id="personaliza"><div class="custom-visual reveal"><img src="assets/galeria/trabajo-01.webp" alt="Trabajo personalizado"><div class="stamp">TU IDEA<br><b>HECHA REAL</b></div></div><div class="custom-copy reveal"><p class="eyebrow">PERSONALIZA</p><h2>CUÉNTANOS QUÉ QUIERES HACER</h2><p>Arma tu solicitud y envíala lista por WhatsApp.</p><form id="customForm"><div class="row"><label>Nombre<input id="name" required placeholder="Tu nombre"></label><label>Producto<select id="type"><option>Polo</option><option>Banderola</option><option>Tela</option><option>Pack de grupo</option><option>Otro</option></select></label></div><div class="row"><label>Cantidad<input id="qty" type="number" min="1" value="1"></label><label>Medidas / talla<input id="size" placeholder="Ej. 2 x 1 m / talla L"></label></div><label>Tu idea<textarea id="idea" required rows="5" placeholder="Frase, colores, nombres, fecha, referencia..."></textarea></label><button class="btn primary full" type="submit">Enviar solicitud por WhatsApp</button></form></div></section>
+<section class="section tribune" id="tribuna"><div class="section-head reveal"><p class="eyebrow">MODO TRIBUNA</p><h2>QUE LA WEB TENGA VIDA</h2><p>Video, movimiento, luces, profundidad y una experiencia adaptada a celular, tablet y PC.</p></div><div class="video-frame reveal"><video controls playsinline poster="assets/galeria/trabajo-02.webp"><source src="assets/video/tribuna-02.mp4" type="video/mp4"></video><div class="video-label"><small>DESDE LA GENTE</small><b>AMBIENTE GRONE</b></div></div></section>
+<section class="cta section reveal"><p class="eyebrow">¿TIENES UNA IDEA?</p><h2>NO LA DEJES EN LA CABEZA.<br>LLÉVALA A LA TRIBUNA.</h2><a class="btn primary" href="#personaliza">Hacer mi pedido</a></section>
+</main>
+<aside id="drawer" class="drawer" aria-hidden="true"><div class="drawer-head"><div><small>TU RESERVA</small><h3>Pedido</h3></div><button id="closeCart">✕</button></div><div id="cartItems" class="cart-items"></div><div class="drawer-foot"><div class="total"><span>Total referencial</span><strong id="cartTotal">S/ 0</strong></div><button id="sendOrder" class="btn primary full">Enviar por WhatsApp</button><small>Precio final y disponibilidad se confirman al coordinar.</small></div></aside><div id="overlay" class="overlay"></div>
+<div id="lightbox" class="lightbox"><button id="lightboxClose">✕</button><img id="lightboxImg" alt="Trabajo ampliado"></div>
+<footer><div><b>RINCÓN DEL HINCHA GRONE</b><span>Proyecto independiente · Lima, Perú</span></div><div><span>Hecho desde la tribuna para la tribuna.</span><span>© <span id="year"></span></span></div></footer><script src="app.js"></script></body></html>
