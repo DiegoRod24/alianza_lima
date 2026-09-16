@@ -1,4 +1,4 @@
-const SETTINGS={whatsapp:''};
+const SETTINGS={whatsapp:'51918381683'};
 const products=[
 {id:'p1',name:'Polo Grone Personalizado',cat:'polo',price:45,desc:'Nombre, frase y talla a pedido.',img:'assets/productos/polo-grone.jpg'},
 {id:'p2',name:'Banderola de Barrio',cat:'banderola',price:95,desc:'Formato personalizado para grupo, viaje o tribuna.',img:'assets/productos/banderola-barrio.jpg'},
@@ -7,7 +7,7 @@ const products=[
 {id:'p5',name:'Polo Tribuna',cat:'polo',price:40,desc:'Modelo ligero para estadio y calle.',img:'assets/productos/polo-tribuna.jpg'},
 {id:'p6',name:'Banderola Especial',cat:'banderola',price:120,desc:'Formato grande, frase y diseño a medida.',img:'assets/productos/banderola-especial.jpg'}];
 const money=n=>`S/ ${n.toFixed(0)}`;let cart=JSON.parse(localStorage.getItem('rhg_cart_v2')||'[]');
-function shareWhatsApp(text){const base=SETTINGS.whatsapp?`https://wa.me/${SETTINGS.whatsapp}`:'https://wa.me/';window.open(`${base}?text=${encodeURIComponent(text)}`,'_blank','noopener')}
+function shareWhatsApp(text){const base=`https://wa.me/${SETTINGS.whatsapp}`;window.open(`${base}?text=${encodeURIComponent(text)}`,'_blank','noopener')}
 const grid=document.getElementById('productGrid');function renderProducts(filter='all'){grid.innerHTML=products.filter(p=>filter==='all'||p.cat===filter).map(p=>`<article class="product-card"><div class="product-media"><img src="${p.img}" alt="${p.name}"></div><div class="product-info"><small>${p.cat.toUpperCase()}</small><h3>${p.name}</h3><p>${p.desc}</p><div class="product-buy"><strong>Desde ${money(p.price)}</strong><button onclick="addCart('${p.id}')">Reservar</button></div></div></article>`).join('')}
 window.addCart=id=>{const p=products.find(x=>x.id===id),x=cart.find(i=>i.id===id);x?x.qty++:cart.push({...p,qty:1});saveCart();openCart()};window.removeCart=i=>{cart.splice(i,1);saveCart()};
 function saveCart(){localStorage.setItem('rhg_cart_v2',JSON.stringify(cart));document.getElementById('cartCount').textContent=cart.reduce((a,b)=>a+b.qty,0);renderCart()};function renderCart(){document.getElementById('cartItems').innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-row"><div><b>${x.name}</b><small>${x.qty} × ${money(x.price)}</small></div><button onclick="removeCart(${i})">Quitar</button></div>`).join(''):'<p style="color:#8292aa">Tu pedido todavía está vacío.</p>';document.getElementById('cartTotal').textContent=money(cart.reduce((a,b)=>a+b.price*b.qty,0))}
@@ -40,5 +40,9 @@ rhgAudio.addEventListener('play',()=>pPlay.textContent='❚❚');rhgAudio.addEve
 pPlay.onclick=()=>{userStarted=true;rhgAudio.paused?rhgAudio.play().catch(()=>{}):rhgAudio.pause()};pPrev.onclick=()=>{if(playlistReady){userStarted=true;loadTrack(trackIndex-1,true)}};pNext.onclick=()=>{if(playlistReady){userStarted=true;loadTrack(trackIndex+1,true)}};pMute.onclick=()=>{rhgAudio.muted=!rhgAudio.muted;pMute.textContent=rhgAudio.muted?'🔇':'🔊'};
 function firstInteraction(){userStarted=true;rhgAudio.play().catch(()=>{});document.removeEventListener('pointerdown',firstInteraction,true);document.removeEventListener('keydown',firstInteraction,true)}
 document.addEventListener('pointerdown',firstInteraction,true);document.addEventListener('keydown',firstInteraction,true);detectPlaylist();
+
+// ===== CONTACTO ÚNICO POR WHATSAPP =====
+const contactStyle=document.createElement('style');contactStyle.textContent=`.rhg-whatsapp{position:fixed;right:20px;bottom:92px;z-index:70;display:flex;align-items:center;gap:9px;padding:12px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:#19a957;color:#fff;text-decoration:none;font-size:11px;font-weight:900;box-shadow:0 18px 42px rgba(0,0,0,.35);transition:.22s transform,.22s box-shadow}.rhg-whatsapp:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 22px 48px rgba(0,0,0,.44)}.rhg-whatsapp:active{transform:scale(.96)}.rhg-whatsapp span:first-child{font-size:20px}@media(max-width:560px){.rhg-whatsapp{right:10px;bottom:82px;padding:11px 13px}.rhg-whatsapp .wa-label{display:none}}`;document.head.appendChild(contactStyle);
+const waButton=document.createElement('a');waButton.className='rhg-whatsapp';waButton.href=`https://wa.me/${SETTINGS.whatsapp}?text=${encodeURIComponent('Hola, quiero información sobre Rincón del Hincha Grone.')}`;waButton.target='_blank';waButton.rel='noopener';waButton.setAttribute('aria-label','Contactar por WhatsApp');waButton.innerHTML='<span>✆</span><span class="wa-label">WhatsApp · Pedidos y consultas</span>';document.body.appendChild(waButton);
 
 renderProducts();saveCart();document.getElementById('year').textContent=new Date().getFullYear();
